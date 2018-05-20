@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { createStackNavigator } from 'react-navigation';
-import { View, Button, Image, StyleSheet, Platform } from 'react-native';
+import { View, Image, StyleSheet, Platform } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import { Button } from './common';
 import { logoimage } from '@assets/images';
 import Landing from './landing/landing';
-import Home from './home/home';
-import Monkey from './car/monkey';
+//import Home from './home/home';
+import Trial from './car/trial';
 
 const styles = StyleSheet.create({
   header: {
-    // marginLeft: 15
+    height: 50
   },
   logocontainer: {
     flexDirection: 'row',
@@ -23,8 +25,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start'
   },
   nav: {
-    flexDirection: 'row',
-    justifyContent: 'space-around'
+    flexDirection: 'row'
   }
 })
 
@@ -32,7 +33,7 @@ class Logo extends React.Component {
   render() {
     return (
       <View style={styles.logocontainer}>
-        <Image
+        <FastImage
           source={logoimage}
           style={styles.logo}
         />
@@ -43,25 +44,17 @@ class Logo extends React.Component {
 
 const Root = createStackNavigator(
   {
-    Landing, Home: Monkey
+    Landing, Home: Trial
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Landing',
     navigationOptions: ({ navigation }) => ({
       headerLeft: <Logo navigation={navigation} />,
       headerStyle: styles.header,
       headerRight: (
         <View style={styles.nav}>
-          <Button
-            color="#c6322d"
-            title="Gallery"
-            onPress={() => navigation.navigate('Landing')}
-          />
-          <Button
-            color='#c6322d'
-            title="Details"
-            onPress={() => navigation.navigate('Home')}
-          />
+          <Button onClick={() => navigation.navigate('Landing')}>Gallery</Button>
+          <Button onClick={() => navigation.navigate('Home')}>Details</Button>
         </View>
       )
     })

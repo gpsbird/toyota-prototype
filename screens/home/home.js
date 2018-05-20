@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Slider } from 'react-native'
+import { View, Text, StyleSheet, Slider, AsyncStorage } from 'react-native'
 import { Card, CardItem, Button } from '../common'
+import cacheAssets from '../utils/cacheAssets';
 
 const styles = StyleSheet.create({
     text: {
@@ -13,6 +14,39 @@ const styles = StyleSheet.create({
 
 export default class Home extends Component {
 
+    state = {
+        assetsLoaded: false
+    }
+
+    async componentDidMount() {
+        this.loadAssetsAsync();
+    }
+
+    loadAssetsAsync = () => {
+
+        try {
+
+            cacheAssets();
+
+        } catch (e) {
+
+            this.setState({ errors: e.message });
+
+        } finally {
+            this.setState({ assetsLoaded: true });
+            this.renderJson();
+        }
+    }
+
+    renderJson = async () => {
+        try {
+            const body = JSON.parse(await AsyncStorage.getItem('front_left_wheel'));
+            console.log(body);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     render() {
 
         return (
@@ -20,9 +54,8 @@ export default class Home extends Component {
             <Card animate="slideInLeft">
 
                 <CardItem>
-                    <Text style={styles.text} >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel venenatis purus, et feugiat neque. Maecenas dolor diam, vulputate ac aliquam vel, tristique ac metus. Praesent eu purus diam. Nunc ut neque vel leo ultrices ullamcorper. Aliquam porta dui ac diam tempor commodo. Ut sit amet tellus accumsan, lacinia ex et, vulputate diam. Donec nec fringilla lacus, in varius enim. Praesent placerat, turpis id laoreet aliquam, arcu ligula efficitur nunc, at dapibus orci urna quis massa. Vestibulum non mi volutpat, tristique sem sed, tristique lorem. Pellentesque rutrum diam at massa scelerisque, non auctor lacus ultrices. Quisque erat nibh, finibus sed gravida in, facilisis id risus. Vestibulum pretium erat ex, nec bibendum ante varius at. Aliquam velit dui, ultricies at nisl id, sagittis tempus magna. Nullam vel tincidunt arcu. Suspendisse at orci scelerisque arcu ultrices eleifend. In nisi eros, tempor in maximus non, aliquet eu justo.
-                    </Text>
+
+                    {(this.state.assetsLoaded) ? <Text style={styles.text} >This is a test</Text> : null}
 
                 </CardItem>
 

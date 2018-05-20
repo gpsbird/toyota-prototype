@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image, Slider, Alert } from 'react-native';
-
+import FastImage from 'react-native-fast-image';
 import CoverFlow from 'react-native-coverflow';
-import { CARDS } from '@assets/images';
+import { CARDS, SLIDES } from '@assets/images';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
-    item: {
-        width: 64 * 2.5,
-        height: 90 * 2.5,
+    image: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'blue',
-        borderWidth: 2,
-        borderColor: '#fff',
-        borderRadius: 10,
-    },
+        width: 384,
+        height: 240
+    }
 });
 
 
@@ -30,8 +26,8 @@ export default class Landing extends Component {
 
         super(props);
 
-        const values = {
-            spacing: 100,
+        this.state = {
+            spacing: 200,
             wingSpan: 80,
             rotation: 50,
             midRotation: 50,
@@ -40,56 +36,34 @@ export default class Landing extends Component {
             perspective: 800,
             cards: 11,
         };
-
-        this.V = ({ name, caption, min, max, step, value }) => (
-            <View style={{ flex: 1 }}>
-                <Text>{caption}:{value}</Text>
-                <Slider
-                    minimumValue={min}
-                    maximumValue={max}
-                    step={step}
-                    value={value}
-                    onValueChange={v => this.setState({ [name]: v })}
-                />
-            </View>
-        );
-
-        this.state = values;
     }
+
 
     onChange = (item) => {
         console.log(`'Current Item', ${item}`);
     }
 
     onPress = (item) => {
-        //Alert.alert(`Pressed on current item ${item}`);
-
         this.props.navigation.navigate('Home')
     }
 
-    getCards(count) {
-        const res = [];
-        const keys = Object.keys(CARDS);
-        for (let i = 0; i < count && i < keys.length; i += 1) {
-            const card = keys[i];
+    renderImages = () => {
+        return Object.keys(SLIDES).map((key, index) => {
 
-            res.push(
-                <Image
-                    key={card}
-                    source={CARDS[card]}
-                    resizeMode="contain"
-                    style={{
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        height: '90%',
-                    }}
-                />);
-        }
-        return res;
+            return <FastImage
+                key={index}
+                style={styles.image}
+                source={{
+                    uri: SLIDES[key],
+                    priority: FastImage.priority.normal,
+                }}
+                resizeMode={null} />
+        });
     }
 
+
     render() {
-        const V = this.V;
+
         const { spacing, wingSpan, rotation, perspective, scaleDown, scaleFurther, midRotation, cards } = this.state;
 
         return (
@@ -105,9 +79,9 @@ export default class Landing extends Component {
                     scaleDown={scaleDown}
                     scaleFurther={scaleFurther}
                     perspective={perspective}
-                    initialSelection={5}
+                    initialSelection={9}
                 >
-                    {this.getCards(cards)}
+                    {this.renderImages()}
                 </CoverFlow>
             </View>
         );

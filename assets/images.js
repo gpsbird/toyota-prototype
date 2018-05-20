@@ -1,16 +1,3 @@
-export const CARDS = {
-    '1C': require('./landing/1.png'),
-    '1S': require('./landing/2.png'),
-    '3S': require('./landing/3.png'),
-    '8H': require('./landing/4.png'),
-    '9C': require('./landing/5.png'),
-    'JC': require('./landing/6.png'),
-    'JH': require('./landing/7.png'),
-    'KH': require('./landing/8.png'),
-    'MJ': require('./landing/9.png'),
-    'QS': require('./landing/10.png'),
-    'TS': require('./landing/11.png'),
-};
 
 export const SLIDES = {
     '1C': 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F1.png?alt=media&token=980d85b4-549e-4136-a439-d903e549d382',
@@ -26,6 +13,23 @@ export const SLIDES = {
     'TS': 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F11.png?alt=media&token=435e11a0-6c29-4e5c-ab98-236999a1f5d0',
 };
 
+export const car = {
+    'body': 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fdodge.json?alt=media&token=6711d435-5cf3-4953-9e1c-4e36f0964ad6',
+    'front_left_wheel': 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Ff-left.json?alt=media&token=4ca3e4dd-2cc0-426b-8d7b-7264720bf357',
+    'front_right_wheel': 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Ff-right.json?alt=media&token=746f4515-e780-4c6e-ad65-a68c091c1245',
+    'back_left_wheel': 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fb-left.json?alt=media&token=0fb119e8-9ea1-4023-b780-37fb92b66df5',
+    'back_right_wheel': 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fb-right.json?alt=media&token=96aedffc-5501-41a8-bd59-910c95465035',
+}
+
+export const body = 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fcol_body.png?alt=media&token=76015480-ba00-4fa2-ac4f-8b69ca245a67';
+
 export const logoimage = require('./logo.png');
-export const monkey = require('./models/new-monkey.json');
-export const cube = require('./models/cube-two.json');
+export const appicon = './icons/app-icon.png';
+
+export const dodge = {
+    'body': './assets/models/dodge.json',
+    'front_left_wheel': './assets/models/f-left.json',
+    'front_right_wheel': './assets/models/f-right.json',
+    'back_left_wheel': './assets/models/b-left.json',
+    'back_right_wheel': './assets/models/b-right.json'
+}

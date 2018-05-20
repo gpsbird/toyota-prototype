@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, View, Dimensions, Text } from "react-native";
 import { WebGLView } from "react-native-webgl";
 import THREE from "../../three";
-import axios from 'axios';
 
 const { width, height } = Dimensions.get('window');
 
@@ -25,17 +24,16 @@ export default class Monkey extends React.Component {
         progress: 0,
         error: null
     }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        const { props, state } = this;
+        return false;
+    }
+
     componentWillUnmount() {
         cancelAnimationFrame(this.requestId);
     }
 
-    loadRemote = (path) => {
-        return axios.get(path).then(function (response) {
-            return response.data;
-        }).catch(function (error) {
-            return error
-        });
-    }
 
     onContextCreate = (gl: WebGLRenderingContext) => {
         let that = this;
@@ -54,7 +52,7 @@ export default class Monkey extends React.Component {
             context: gl
         });
         renderer.setSize(width, height);
-        renderer.setClearColor(0xffffff);
+        renderer.setClearColor(0x555555);
 
         let camera, scene, manager, onProgress;
 
@@ -83,31 +81,34 @@ export default class Monkey extends React.Component {
 
 
         function init() {
-            camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+            camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 3000);
             scene = new THREE.Scene();
 
-            // let ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            // scene.add(ambientLight);
-            // let pointLight = new THREE.PointLight(0xffffff, 0.5);
+            let ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            let pointLight = new THREE.PointLight(0xffffff, 0.5);
 
-            // scene.add(pointLight);
+            scene.add(pointLight);
 
-            let light_one = new THREE.DirectionalLight(0xffffff);
-            light_one.position.set(1, 1, 1);
-            scene.add(light_one);
-            let light_two = new THREE.DirectionalLight(0x002288);
-            light_two.position.set(- 1, - 1, - 1);
-            scene.add(light_two);
-            let light_three = new THREE.AmbientLight(0x222222);
-            scene.add(light_three);
+            // let light_one = new THREE.DirectionalLight(0xffffff);
+            // light_one.position.set(1, 1, 1);
+            // scene.add(light_one);
+
+            // let light_two = new THREE.DirectionalLight(0x002288);
+            // light_two.position.set(- 1, - 1, - 1);
+            // scene.add(light_two);
+
+            // let light_three = new THREE.AmbientLight(0x222222);
+            // scene.add(light_three);
 
             loadModel().then((response) => {
 
                 let { geometry } = response;
-                let material = new THREE.MeshNormalMaterial();
+                let material = new THREE.MeshLambertMaterial({ color: 0xf3ffe2 });
                 let mesh = new THREE.Mesh(geometry, material);
+
                 scene.add(mesh);
-                mesh.position.z = -5;
+                mesh.position.set(0, 0, -5);
 
             }).catch((reason) => {
 
@@ -134,12 +135,9 @@ export default class Monkey extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>{this.state.progress} % loaded</Text>
-                <WebGLView
-                    style={styles.webglView}
-                    onContextCreate={this.onContextCreate}
-                />
-                <Text>{this.state.error}</Text>
+
+                <WebGLView style={styles.webglView} onContextCreate={this.onContextCreate} />
+
             </View>
         );
     }

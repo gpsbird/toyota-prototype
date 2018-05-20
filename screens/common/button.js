@@ -9,7 +9,7 @@ export class Button extends React.Component {
     }
 
     animate = (e) => {
-        this.setState({ bgColor: 'mediumspringgreen' });
+        //this.setState({ bgColor: 'mediumspringgreen' });
         this.refs.text.pulse();
         //this.refs.text.transitionTo({ opacity: 0.2 });
         this.props.onClick(e);
@@ -22,12 +22,13 @@ export class Button extends React.Component {
             button: {
                 flex: 1,
                 alignSelf: 'stretch',
-                backgroundColor: this.state.bgColor,
+                backgroundColor: '#fff',
                 borderRadius: 3,
                 borderWidth: 1,
-                borderColor: '#007aff',
+                borderColor: '#c6322d',
                 marginLeft: 5,
-                marginRight: 5
+                marginRight: 5,
+                width: 100
             },
 
             disabled_button: {
@@ -43,9 +44,8 @@ export class Button extends React.Component {
 
             text: {
                 alignSelf: 'center',
-                color: '#007aff',
-                fontSize: 14,
-                fontWeight: '600',
+                color: '#c6322d',
+                fontSize: 12,
                 paddingTop: 10,
                 paddingBottom: 10
             },
