@@ -7,6 +7,7 @@ import Files from '../../Files';
 import { car, dodge, body } from '@assets/images';
 import _ from 'lodash';
 
+
 class Scene extends React.Component {
 
     state = {
@@ -36,11 +37,13 @@ class Scene extends React.Component {
         return null;
     }
 
+
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.color !== this.props.color) {
             this.changeColor(this.props.color);
         }
     }
+
 
     changeColor = (color) => {
 
@@ -104,6 +107,7 @@ class Scene extends React.Component {
         await this.loadAssets();
 
         this.props.onFinishedLoading();
+
     }
 
     setupScene = () => {
@@ -172,7 +176,6 @@ class Scene extends React.Component {
                     mesh = new THREE.Mesh(geometry, material);
                 }
 
-
                 this.scene.add(mesh);
 
             }).catch((reason) => {
@@ -187,6 +190,7 @@ class Scene extends React.Component {
     }
 
     onWindowResize = () => {
+
         const { innerWidth: width, innerHeight: height, devicePixelRatio: scale } = window;
 
         this.camera.aspect = width / height;

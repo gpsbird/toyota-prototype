@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, Slider, Alert } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image, Slider, NetInfo } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import CoverFlow from 'react-native-coverflow';
 import { CARDS, SLIDES } from '@assets/images';
@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: 384,
         height: 240
+    },
+    text: {
+        textAlign: 'center',
+        color: '#c6322d'
     }
 });
 
@@ -35,16 +39,60 @@ export default class Landing extends Component {
             scaleFurther: 0.75,
             perspective: 800,
             cards: 11,
+            launch: false
         };
     }
 
+    componentDidMount = () => {
+        //If there is internet
+        NetInfo.isConnected.fetch().then(isConnected => {
+
+            (isConnected) ? this.toggleLaunch(true) : this.toggleLaunch(false);
+        });
+
+        NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+    }
+
+    toggleLaunch = (status) => {
+
+        let change = (this.state.launch === status) ? false : true;
+        if (change) {
+            this.setState({ launch: status });
+        }
+    }
+
+    handleConnectivityChange = (isConnected) => {
+        if (isConnected) {
+            NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
+        }
+    }
+
+    renderRoot = () => {
+
+        const { spacing, wingSpan, rotation, perspective, scaleDown, scaleFurther, midRotation } = this.state;
+
+        return ((this.state.launch) ? <CoverFlow
+            style={styles.container}
+            onChange={this.onChange}
+            onPress={this.onPress}
+            spacing={spacing}
+            wingSpan={wingSpan}
+            rotation={rotation}
+            midRotation={midRotation}
+            scaleDown={scaleDown}
+            scaleFurther={scaleFurther}
+            perspective={perspective}
+            initialSelection={9}>
+            {this.renderImages()}
+        </CoverFlow> : <View style={styles.container}><Text style={styles.text}>Please enable your internet and launch the application again</Text></View>);
+    }
 
     onChange = (item) => {
         console.log(`'Current Item', ${item}`);
     }
 
     onPress = (item) => {
-        this.props.navigation.navigate('Home')
+        this.props.navigation.navigate('Details')
     }
 
     renderImages = () => {
@@ -64,25 +112,9 @@ export default class Landing extends Component {
 
     render() {
 
-        const { spacing, wingSpan, rotation, perspective, scaleDown, scaleFurther, midRotation, cards } = this.state;
-
         return (
             <View style={{ flex: 1 }}>
-                <CoverFlow
-                    style={styles.container}
-                    onChange={this.onChange}
-                    onPress={this.onPress}
-                    spacing={spacing}
-                    wingSpan={wingSpan}
-                    rotation={rotation}
-                    midRotation={midRotation}
-                    scaleDown={scaleDown}
-                    scaleFurther={scaleFurther}
-                    perspective={perspective}
-                    initialSelection={9}
-                >
-                    {this.renderImages()}
-                </CoverFlow>
+                {this.renderRoot()}
             </View>
         );
     }

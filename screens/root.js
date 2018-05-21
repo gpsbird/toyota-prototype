@@ -5,8 +5,8 @@ import FastImage from 'react-native-fast-image';
 import { Button } from './common';
 import { logoimage } from '@assets/images';
 import Landing from './landing/landing';
-//import Home from './home/home';
-import Trial from './car/trial';
+import Home from './home/home';
+import Car from './car/car';
 
 const styles = StyleSheet.create({
   header: {
@@ -44,7 +44,7 @@ class Logo extends React.Component {
 
 const Root = createStackNavigator(
   {
-    Landing, Home: Trial
+    Landing, Details: Car
   },
   {
     initialRouteName: 'Landing',
@@ -54,7 +54,7 @@ const Root = createStackNavigator(
       headerRight: (
         <View style={styles.nav}>
           <Button onClick={() => navigation.navigate('Landing')}>Gallery</Button>
-          <Button onClick={() => navigation.navigate('Home')}>Details</Button>
+          <Button onClick={() => navigation.navigate('Details')}>Details</Button>
         </View>
       )
     })

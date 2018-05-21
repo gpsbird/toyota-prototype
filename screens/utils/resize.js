@@ -1,5 +1,6 @@
 import { Dimensions, PixelRatio } from 'react-native';
 import EventEmitter from 'EventEmitter';
+import Orientation from 'react-native-orientation';
 const { width, height } = Dimensions.get('window');
 /*
  Window Resize Stub
@@ -17,4 +18,4 @@ Dimensions.addEventListener('change', ({ screen: { width, height, scale } }) => 
     window.innerWidth = window.clientWidth = width;
     window.innerHeight = window.clientHeight = height;
     window.emitter.emit('resize');
-})
+});

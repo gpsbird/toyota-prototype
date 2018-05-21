@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
+import { AppRegistry, View, Text } from 'react-native';
 import Root from './screens/root';
 import Orientation from 'react-native-orientation';
 import SplashScreen from 'react-native-smart-splash-screen'
@@ -16,7 +16,10 @@ export default class toyota extends Component {
             duration: 850,
             delay: 500,
         });
+
     }
+
+
 
     render() {
 
@@ -24,6 +27,9 @@ export default class toyota extends Component {
 
         return <Root />
     }
-}
+
+
+
+}//End of component
 
 AppRegistry.registerComponent('toyota', () => toyota); 

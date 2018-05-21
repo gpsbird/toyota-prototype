@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     webglView: {
-        width: width,
-        height: height
+        flex: 1,
+        width: '100%'
     }
 });
 
