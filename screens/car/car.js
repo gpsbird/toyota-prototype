@@ -79,7 +79,7 @@ export default class Car extends Component {
                 {!this.state.sceneLoaded && this.renderLoading()}
 
                 <View style={styles.nav}>
-                    <Text>{this.state.status}</Text>
+                    <Text>{this.state.status}{this.state.errors}</Text>
                     <Button onClick={() => this.changeColor('red')}>Red</Button>
                     <Button onClick={() => this.changeColor('blue')}>Blue</Button>
                 </View>

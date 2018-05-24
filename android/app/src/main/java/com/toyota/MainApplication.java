@@ -3,6 +3,9 @@ package com.toyota;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.microsoft.appcenter.reactnative.crashes.AppCenterReactNativeCrashesPackage;
 import com.microsoft.appcenter.reactnative.analytics.AppCenterReactNativeAnalyticsPackage;
 import com.microsoft.appcenter.reactnative.appcenter.AppCenterReactNativePackage;
@@ -30,6 +33,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new PhotoViewPackage(),
+            new LinearGradientPackage(),
+            new VectorIconsPackage(),
             new AppCenterReactNativeCrashesPackage(MainApplication.this, getResources().getString(R.string.appCenterCrashes_whenToSendCrashes)),
             new AppCenterReactNativeAnalyticsPackage(MainApplication.this, getResources().getString(R.string.appCenterAnalytics_whenToEnableAnalytics)),
             new AppCenterReactNativePackage(MainApplication.this),

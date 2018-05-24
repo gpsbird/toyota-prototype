@@ -6,6 +6,8 @@
  */
 
 #import "AppDelegate.h"
+#import <Appcenter/MSAppCenter.h>
+#import <AppCenter/AppCenter.h>
 #import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
 #import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
 #import <AppCenterReactNative/AppCenterReactNative.h>

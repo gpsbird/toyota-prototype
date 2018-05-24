@@ -21,10 +21,18 @@ export const car = {
     'back_right_wheel': 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fb-right.json?alt=media&token=96aedffc-5501-41a8-bd59-910c95465035',
 }
 
-export const body = 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fcol_body.png?alt=media&token=76015480-ba00-4fa2-ac4f-8b69ca245a67';
-
 export const logoimage = require('./logo.png');
-export const appicon = './icons/app-icon.png';
+
+export const customize_icon = require('./icons/customize.png');
+export const location_icon = require('./icons/location.png');
+export const service_icon = require('./icons/service.png');
+export const test_drive_icon = require('./icons/test_drive.png');
+
+export const mercedez = 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fmercedes.obj?alt=media&token=14a51f97-ab3d-46c7-8d8a-2211476f79d2';
+export const mercedez_mtl = 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fmercedes.mtl?alt=media&token=e6ebdea7-f15b-46ff-abef-e8fc40ff3e31';
+
+export const camaro = 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fcamaro.obj?alt=media&token=b0ef690a-7b56-4361-835c-f5819dd1e4a5';
+export const camaro_mtl = 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fcamaro.mtl?alt=media&token=cc4e6d18-fa44-40fe-a390-7a029521938d';
 
 export const dodge = {
     'body': './assets/models/dodge.json',
@@ -32,4 +40,9 @@ export const dodge = {
     'front_right_wheel': './assets/models/f-right.json',
     'back_left_wheel': './assets/models/b-left.json',
     'back_right_wheel': './assets/models/b-right.json'
+}
+
+export const merc = {
+    'object': './assets/models/mercedes.obj',
+    'material': './assets/models/mercedes.mtl'
 }

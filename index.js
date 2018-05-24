@@ -8,7 +8,7 @@ export default class toyota extends Component {
 
     componentDidMount() {
         // this locks the view to Landscape Mode
-        Orientation.lockToLandscape();
+        //Orientation.lockToLandscape();
 
         //Close the splash screen
         SplashScreen.close({

@@ -5,6 +5,8 @@ import FastImage from 'react-native-fast-image';
 import { Button } from './common';
 import { logoimage } from '@assets/images';
 import Landing from './landing/landing';
+import Vehicle from './landing/vehicle';
+import Introduction from './landing/introduction';
 import Home from './home/home';
 import Car from './car/car';
 
@@ -44,19 +46,20 @@ class Logo extends React.Component {
 
 const Root = createStackNavigator(
   {
-    Landing, Details: Car
+    Introduction, Landing, Details: Car, Vehicle
   },
   {
-    initialRouteName: 'Landing',
+    initialRouteName: 'Introduction',
     navigationOptions: ({ navigation }) => ({
-      headerLeft: <Logo navigation={navigation} />,
+      headerRight: <Logo navigation={navigation} />,
       headerStyle: styles.header,
-      headerRight: (
+      /*headerRight: (
         <View style={styles.nav}>
+          <Button onClick={() => navigation.navigate('Introduction')}>Intro</Button>
           <Button onClick={() => navigation.navigate('Landing')}>Gallery</Button>
           <Button onClick={() => navigation.navigate('Details')}>Details</Button>
         </View>
-      )
+      )*/
     })
   }
 );

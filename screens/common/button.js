@@ -28,7 +28,8 @@ export class Button extends React.Component {
                 borderColor: '#c6322d',
                 marginLeft: 5,
                 marginRight: 5,
-                width: 100
+                width: 100,
+                height: 40
             },
 
             disabled_button: {
