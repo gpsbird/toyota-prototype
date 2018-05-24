@@ -34,15 +34,15 @@ export const mercedez_mtl = 'https://firebasestorage.googleapis.com/v0/b/toyota-
 export const camaro = 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fcamaro.obj?alt=media&token=b0ef690a-7b56-4361-835c-f5819dd1e4a5';
 export const camaro_mtl = 'https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/models%2Fcamaro.mtl?alt=media&token=cc4e6d18-fa44-40fe-a390-7a029521938d';
 
-export const dodge = {
-    'body': './assets/models/dodge.json',
-    'front_left_wheel': './assets/models/f-left.json',
-    'front_right_wheel': './assets/models/f-right.json',
-    'back_left_wheel': './assets/models/b-left.json',
-    'back_right_wheel': './assets/models/b-right.json'
-}
+// export const dodge = {
+//     'body': './assets/models/dodge.json',
+//     'front_left_wheel': './assets/models/f-left.json',
+//     'front_right_wheel': './assets/models/f-right.json',
+//     'back_left_wheel': './assets/models/b-left.json',
+//     'back_right_wheel': './assets/models/b-right.json'
+// }
 
-export const merc = {
-    'object': './assets/models/mercedes.obj',
-    'material': './assets/models/mercedes.mtl'
-}
+// export const merc = {
+//     'object': './assets/models/mercedes.obj',
+//     'material': './assets/models/mercedes.mtl'
+// }
