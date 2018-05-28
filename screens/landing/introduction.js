@@ -10,6 +10,12 @@ const color = isLight => backgroundColor(!isLight);
 
 export default class Introduction extends Component {
 
+    static navigationOptions = ({ navigation }) => ({
+        header: null,
+        headerLeft: null,
+        drawerIcon: null
+    });
+
     Square = ({ isLight, selected }) => {
         let backgroundColor;
         if (isLight) {
@@ -83,8 +89,8 @@ export default class Introduction extends Component {
         return (
             <Onboarding
                 DotComponent={this.Square}
-                onSkip={() => this.props.navigation.navigate('Landing')}
-                onDone={() => this.props.navigation.navigate('Landing')}
+                onSkip={() => this.props.navigation.navigate('Simple')}
+                onDone={() => this.props.navigation.navigate('Simple')}
                 NextButtonComponent={this.Next}
                 SkipButtonComponent={this.Skip}
                 DoneButtonComponent={this.Done}

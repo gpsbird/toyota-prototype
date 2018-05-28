@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { Modal, TouchableHighlight, StyleSheet, Image, View, Text, Slider, NetInfo, Alert, Dimensions } from 'react-native';
+import { StyleSheet, NetInfo, Dimensions } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import CoverFlow from 'react-native-coverflow';
 
-import { CARDS, SLIDES } from '@assets/images';
+import {
+    Icon,
+    Text,
+    View,
+    Button
+} from '@shoutem/ui';
+
+import { SLIDES } from '@assets/images';
 
 const { width, height } = Dimensions.get('window');
 
@@ -23,57 +30,6 @@ const styles = StyleSheet.create({
     text: {
         textAlign: 'center',
         color: '#c6322d'
-    },
-    modal_main_container: {
-        top: 0,
-        width: '100%',
-        left: 0,
-        right: 0,
-        bottom: 0,
-        maxHeight: height,
-        position: 'absolute',
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    },
-    modal: {
-        top: '10%',
-        width: '90%',
-        left: '5%',
-        right: 'auto',
-        bottom: '10%',
-        minHeight: 600,
-        maxHeight: height,
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        borderWidth: 1,
-        borderRadius: 2,
-        borderColor: '#ddd',
-        borderBottomWidth: 0,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 2,
-        elevation: 1,
-    },
-    modal_sub_container: {
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        backgroundColor: '#fff',
-        justifyContent: 'flex-start',
-        flex: 1,
-    },
-    modal_content_container: {
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        backgroundColor: '#fff',
-        justifyContent: 'flex-start',
-        flex: 1,
-    },
-    modal_image: {
-        width: 320,
-        height: 200,
-        alignItems: 'center',
-        justifyContent: 'center',
     },
 });
 
@@ -97,6 +53,10 @@ export default class Landing extends Component {
             modalVisible: false,
             active: null
         };
+    }
+
+    testMe = () => {
+        console.log(this.props);
     }
 
     componentDidMount = () => {
@@ -149,9 +109,7 @@ export default class Landing extends Component {
         let active = Object.keys(SLIDES)[item];
         let image = SLIDES[active];
         this.setState({ active, image }, () => {
-            console.log(active);
-            console.log(image);
-            this.props.navigation.navigate('Vehicle', { vehicle: { image, key: active } });
+            this.props.navigation.navigate('Vehicle', { vehicle: { image, from: this.props.navigation.state.key } });
         });
 
     }

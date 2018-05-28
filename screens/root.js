@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
-import { createStackNavigator } from 'react-navigation';
-import { View, Image, StyleSheet, Platform } from 'react-native';
+import { createStackNavigator, createDrawerNavigator, DrawerActions } from 'react-navigation';
+import { StyleSheet, Platform } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { Button } from './common';
 import { logoimage } from '@assets/images';
 import Landing from './landing/landing';
+import Simple from './landing/simple';
 import Vehicle from './landing/vehicle';
 import Introduction from './landing/introduction';
 import Home from './home/home';
+import News from './news/news';
+import Book from './book/book';
 import Car from './car/car';
+import DrawerContent from './sidebar';
+import {
+  Icon,
+  View,
+  Button
+} from '@shoutem/ui';
 
 const styles = StyleSheet.create({
   header: {
     height: 50
   },
-  logocontainer: {
+  container: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
@@ -25,16 +33,13 @@ const styles = StyleSheet.create({
     height: 40,
     resizeMode: 'contain',
     alignSelf: 'flex-start'
-  },
-  nav: {
-    flexDirection: 'row'
   }
 })
 
 class Logo extends React.Component {
   render() {
     return (
-      <View style={styles.logocontainer}>
+      <View style={styles.container}>
         <FastImage
           source={logoimage}
           style={styles.logo}
@@ -44,24 +49,37 @@ class Logo extends React.Component {
   }
 }
 
-const Root = createStackNavigator(
-  {
-    Introduction, Landing, Details: Car, Vehicle
-  },
-  {
-    initialRouteName: 'Introduction',
+
+const Menu = createStackNavigator({
+  Simple: { screen: Simple },
+  Landing: { screen: Landing },
+  Vehicle: { screen: Vehicle },
+  Details: { screen: Car },
+  News: { screen: News },
+  Book: { screen: Book },
+
+}, {
+    gesturesEnabled: false,
     navigationOptions: ({ navigation }) => ({
-      headerRight: <Logo navigation={navigation} />,
+      headerLeft: <Button onPress={() => navigation.dispatch(DrawerActions.openDrawer())} ><Icon name="sidebar" /></Button>,
+      headerRight: <Logo />,
       headerStyle: styles.header,
-      /*headerRight: (
-        <View style={styles.nav}>
-          <Button onClick={() => navigation.navigate('Introduction')}>Intro</Button>
-          <Button onClick={() => navigation.navigate('Landing')}>Gallery</Button>
-          <Button onClick={() => navigation.navigate('Details')}>Details</Button>
-        </View>
-      )*/
-    })
-  }
+    }),
+  },
 );
+
+
+
+const Root = createDrawerNavigator({
+  Introduction: { screen: Introduction },
+  Menu: { screen: Menu }
+}, {
+    drawerWidth: 250,
+    initialRouteName: 'Introduction',
+    drawerPosition: 'left',
+    contentComponent: DrawerContent
+
+  });
+
 
 export default Root

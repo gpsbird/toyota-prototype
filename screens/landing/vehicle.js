@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { NavigationActions } from 'react-navigation';
+import Orientation from 'react-native-orientation';
 import {
     ScrollView,
     Icon,
@@ -15,13 +17,34 @@ import {
     Screen,
 } from '@shoutem/ui';
 
+
 export default class Vehicle extends Component {
 
-
-
     static navigationOptions = ({ navigation }) => ({
-        headerLeft: <Button onPress={() => navigation.goBack(null)} ><Icon name="back" /></Button>,
+
+        headerLeft: <Button onPress={() => { const vehicle = navigation.getParam('vehicle', {}); console.log(vehicle); navigation.goBack(); }} ><Icon name="back" /></Button>,
     });
+
+    state = {
+        image: 'large'
+    }
+
+    componentDidMount = () => {
+        Orientation.addOrientationListener(this.orientationDidChange);
+    }
+
+    componentWillUnmount() {
+        // Remember to remove listener
+        Orientation.removeOrientationListener(this.orientationDidChange);
+    }
+
+    orientationDidChange = (orientation) => {
+        if (orientation === 'LANDSCAPE') {
+            this.setState({ image: 'large-portrait' });
+        } else {
+            this.setState({ image: 'large' });
+        }
+    }
 
 
     render() {
@@ -29,16 +52,16 @@ export default class Vehicle extends Component {
         const vehicle = this.props.navigation.getParam('vehicle', {});
 
         return (
-            <Screen styleName="paper full-screen">
+            <Screen styleName="paper">
 
                 <ScrollView>
                     <ImageBackground
-                        styleName="large hero"
+                        styleName={`${this.state.image} hero`}
                         animationName="hero"
-                        source={{ uri: vehicle.image }}>
+                        source={{ uri: vehicle.image.url }}>
                         <Tile animationName="hero">
-                            <Title>Vehicle name</Title>
-                            <Subtitle>Model</Subtitle>
+                            <Title>{vehicle.name}</Title>
+                            <Subtitle>{vehicle.model}</Subtitle>
                         </Tile>
                     </ImageBackground>
 
@@ -57,9 +80,9 @@ export default class Vehicle extends Component {
 
                         <Row>
                             <Icon name="trophy" />
-                            <View styleName="vertical">
-                                <Subtitle>Capacity</Subtitle>
-                                <Text numberOfLines={1}>XYX</Text>
+                            <View styleName="horizontal">
+                                <Subtitle>Capacity: </Subtitle>
+                                <Text numberOfLines={1}>{vehicle.capacity}</Text>
                             </View>
                         </Row>
 
@@ -67,9 +90,9 @@ export default class Vehicle extends Component {
 
                         <Row>
                             <Icon name="equalizer" />
-                            <View styleName="vertical">
-                                <Subtitle>Engine</Subtitle>
-                                <Text numberOfLines={1}>ABC</Text>
+                            <View styleName="horizontal">
+                                <Subtitle>Engine CC: </Subtitle>
+                                <Text numberOfLines={1}>{vehicle.cc}</Text>
                             </View>
                         </Row>
 
@@ -77,9 +100,9 @@ export default class Vehicle extends Component {
 
                         <Row>
                             <Icon name="history" />
-                            <View styleName="vertical">
-                                <Subtitle>Year</Subtitle>
-                                <Text numberOfLines={1}>IJK</Text>
+                            <View styleName="horizontal">
+                                <Subtitle>Year: </Subtitle>
+                                <Text numberOfLines={1}>{vehicle.year}</Text>
                             </View>
                         </Row>
 

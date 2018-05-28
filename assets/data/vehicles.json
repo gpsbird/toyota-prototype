@@ -1,0 +1,123 @@
+[
+  {
+    "name": "Hilux",
+    "model": "Double Cab",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2015",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F1.png?alt=media&token=980d85b4-549e-4136-a439-d903e549d382"
+    }
+  },
+  {
+    "name": "FJ Cruiser",
+    "model": "GSJ15W",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2016",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F2.png?alt=media&token=9bd6ef40-6474-4a9f-95a5-7240eaa021c3"
+    }
+  },
+  {
+    "name": "Highlander",
+    "model": "Limited",
+    "capacity": "3.5L",
+    "cc": "3000",
+    "year": "2018",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F3.png?alt=media&token=c303156f-df5a-41a9-b090-05da15869161"
+    }
+  },
+  {
+    "name": "4Runner",
+    "model": "Surf",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2016",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F4.png?alt=media&token=b4012466-04b1-49fc-b559-1858de33427f"
+    }
+  },
+  {
+    "name": "RAV4",
+    "model": "Crossover",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2016",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F5.png?alt=media&token=f1a8ec19-812c-448b-b380-8304ed0080c3"
+    }
+  },
+  {
+    "name": "Corolla",
+    "model": "Lounge",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2016",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F6.png?alt=media&token=f87bd6a2-bb83-49d9-97ee-7a2a4021c360"
+    }
+  },
+  {
+    "name": "Corolla",
+    "model": "Advance",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2016",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F7.png?alt=media&token=307da987-6253-4ad2-94ba-e70f96c647e8"
+    }
+  },
+  {
+    "name": "Land Cruiser",
+    "model": "VX",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2015",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F8.png?alt=media&token=1aa42bf9-c9f7-4c8e-8ba2-9d439e4dcbdb"
+    }
+  },
+  {
+    "name": "Land Cruiser",
+    "model": "Prado",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2018",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F9.png?alt=media&token=7c3ec918-4988-418a-a32b-f196647007ea"
+    }
+  },
+  {
+    "name": "Fortuner",
+    "model": "MT",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2018",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F10.png?alt=media&token=9623eff5-f2ad-4039-97c7-5f0091db68cb"
+    }
+  },
+  {
+    "name": "Fortuner",
+    "model": "AT",
+    "capacity": "4L",
+    "cc": "3000",
+    "year": "2016",
+    "description": "Cras et luctus tortor, eu cursus tellus. Vivamus gravida non nisl dignissim ultricies. In ultrices ut lorem eget aliquet.",
+    "image": {
+      "url": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/landing%2F11.png?alt=media&token=435e11a0-6c29-4e5c-ab98-236999a1f5d0"
+    }
+  }
+]

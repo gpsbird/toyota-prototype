@@ -22,6 +22,9 @@ export const car = {
 }
 
 export const logoimage = require('./logo.png');
+export const side = require('./side.jpg');
+
+export const vehicles = require('./data/vehicles.json');
 
 export const customize_icon = require('./icons/customize.png');
 export const location_icon = require('./icons/location.png');

@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { StatusBar, StyleSheet, View, Text, NetInfo } from 'react-native';
-import { Scene, Loading, Button } from '../common';
+import { StyleSheet, NetInfo, View } from 'react-native';
+import { Scene, Loading } from '../common';
 import cacheAssets from '../utils/cacheAssets';
 
 import "../../three";
 import '../utils/domElement';
 import '../utils/resize';
 
+import {
+    Icon,
+    View as SmoothView,
+    Text,
+    Button
+} from '@shoutem/ui';
 
 const styles = StyleSheet.create({
     container: {
@@ -35,6 +41,10 @@ const styles = StyleSheet.create({
 });
 
 export default class Car extends Component {
+
+    static navigationOptions = ({ navigation }) => ({
+        headerLeft: <Button onPress={() => navigation.goBack()} ><Icon name="back" /></Button>,
+    });
 
     state = { assetsLoaded: false, sceneLoaded: false, errors: null, status: null, progress: null, color: null, launch: false };
 
@@ -78,11 +88,11 @@ export default class Car extends Component {
 
                 {!this.state.sceneLoaded && this.renderLoading()}
 
-                <View style={styles.nav}>
+                <SmoothView styleName="horizontal">
                     <Text>{this.state.status}{this.state.errors}</Text>
-                    <Button onClick={() => this.changeColor('red')}>Red</Button>
-                    <Button onClick={() => this.changeColor('blue')}>Blue</Button>
-                </View>
+                    <Button styleName="dark" onPress={() => this.changeColor('red')}><Text>Red</Text></Button>
+                    <Button styleName="dark" onPress={() => this.changeColor('blue')}><Text>Blue</Text></Button>
+                </SmoothView>
             </View>
         );
     }
