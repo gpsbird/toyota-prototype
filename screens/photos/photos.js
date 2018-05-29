@@ -54,27 +54,45 @@ export default class Photos extends Component {
                 [
                     {
                         "source": {
-                            "uri": "https://shoutem.github.io/static/getting-started/restaurant-1.jpg"
+                            "uri": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/gallery%2Fgallery-1.jpg?alt=media&token=ab42ea70-5d01-4396-a0f2-3be819a3ea68"
                         },
-                        "title": "Gaspar Brasserie",
-                        "description": "Expect an intimate venue with the ambience of a private "
-                            + "club. The mood is casual, the guests sublime."
+                        "title": "Toyota Land Cruiser Prado",
+                        "description": "Awesome vehicle. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     },
                     {
                         "source": {
-                            "uri": "https://shoutem.github.io/static/getting-started/restaurant-2.jpg"
+                            "uri": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/gallery%2Fgallery-2.jpg?alt=media&token=139b2271-0cff-49cd-b63b-b9edad916848"
                         },
-                        "title": "Chalk Point Kitchen",
-                        "description": "Stylish restaurant serving market-to-table American fare "
-                            + "in modern farmhouse digs with cellar bar."
+                        "title": "Toyota Land Cruiser Interior",
+                        "description": "Awesome Interior. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     },
                     {
                         "source": {
-                            "uri": "https://shoutem.github.io/static/getting-started/restaurant-3.jpg"
+                            "uri": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/gallery%2Fgallery-3.jpg?alt=media&token=9d793809-7a33-4a34-8f36-ab8a4603a1f1"
                         },
-                        "title": "Kyoto Amber Upper East",
-                        "description": "Amber Upper East is located on the corner of 80th and 3rd "
-                            + "Avenue. We serve Japanese and Asian cuisines."
+                        "title": "Toyota Land Cruiser Prado",
+                        "description": "Awesome vehicle. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {
+                        "source": {
+                            "uri": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/gallery%2Fgallery-4.jpg?alt=media&token=83aa571a-8eef-4a82-86ba-42a98d132d07"
+                        },
+                        "title": "Toyota Rav4",
+                        "description": "Awesome vehicle. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {
+                        "source": {
+                            "uri": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/gallery%2Fgallery-5.jpg?alt=media&token=a27423d4-f660-49f6-a702-03931ab6d537"
+                        },
+                        "title": "Toyota FJ Concept",
+                        "description": "Awesome vehicle. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {
+                        "source": {
+                            "uri": "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/gallery%2Fgallery-6.jpg?alt=media&token=2749f891-222e-4fee-9c1d-a3ed108c8e06"
+                        },
+                        "title": "Toyota FJ Custom",
+                        "description": "Awesome vehicle. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     }
                 ]
         }
