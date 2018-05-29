@@ -105,6 +105,27 @@ class DrawerContent extends Component {
                         </Button>
                     </Row>
 
+                    <Row styleName="small">
+                        <Button onPress={this.navigateToScreen('Login')}>
+                            <Icon name="lock" />
+                            <Text>Login</Text>
+                        </Button>
+                    </Row>
+
+                    <Row styleName="small">
+                        <Button onPress={this.navigateToScreen('Signup')}>
+                            <Icon name="add-friend" />
+                            <Text>Signup</Text>
+                        </Button>
+                    </Row>
+
+                    <Row styleName="small">
+                        <Button onPress={this.navigateToScreen('Photos')}>
+                            <Icon name="photo" />
+                            <Text>Photos</Text>
+                        </Button>
+                    </Row>
+
 
 
                 </ScrollView>

@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { DrawerActions } from 'react-navigation';
 import { StyleSheet } from 'react-native';
+//import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
 import {
     ScrollView,
     Icon,
     Row,
     Subtitle,
+    Overlay,
     Text,
     Title,
-    Overlay,
     View,
+    Button,
     ImageBackground,
     Divider,
     Card,
-    Button,
     ListView,
     Caption,
     TouchableOpacity,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default class Book extends Component {
+export default class Login extends Component {
 
     static navigationOptions = ({ navigation }) => ({
         headerLeft: <Button onPress={() => navigation.dispatch(DrawerActions.openDrawer())} ><Icon name="sidebar" /></Button>,
@@ -52,35 +53,30 @@ export default class Book extends Component {
                     <ImageBackground
                         styleName="large-banner hero"
                         animationName="hero"
-                        source={{ uri: "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/forms%2Frepair-2.jpg?alt=media&token=bf06734f-ff0b-4460-a9af-61951d2f7028" }}>
+                        source={{ uri: "https://firebasestorage.googleapis.com/v0/b/toyota-kenya.appspot.com/o/forms%2Frav4.jpg?alt=media&token=68c81d60-6255-4d60-8f30-d5cd57d969ff" }}>
                         <Tile animationName="hero">
-                            <Overlay>
-                                <Title>Book for engine service</Title>
-                                <Subtitle>@ your nearest toyota dealer</Subtitle>
-                            </Overlay>
+
+                            <Title>Login</Title>
+                            <Subtitle>To view custom content</Subtitle>
+
                         </Tile>
                     </ImageBackground>
 
-                    <TextInput
-                        placeholder={'Full name'}
-                    />
+                    <View styleName="vertical">
+                        <TextInput placeholder={'Username'} />
+                    </View>
 
-                    <TextInput
-                        placeholder={'Phone'}
-                    />
-                    <TextInput
-                        placeholder={'Email'}
-                    />
-                    <TextInput
-                        placeholder={'Pick a date'}
-                    />
+                    <View styleName="vertical">
+                        <TextInput secureTextEntry placeholder={'Password'} />
+                    </View>
+
+
                     <View styleName="horizontal">
 
-
                         <Button styleName="confirmation secondary">
-                            <Text>Submit</Text>
+                            <Icon name="lock" />
+                            <Text>Login</Text>
                         </Button>
-
 
                     </View>
                 </ScrollView>

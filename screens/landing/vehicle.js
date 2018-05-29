@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { NavigationActions } from 'react-navigation';
+//import { Button } from 'react-native-elements'
 import Orientation from 'react-native-orientation';
 import {
     ScrollView,
@@ -67,7 +68,7 @@ export default class Vehicle extends Component {
 
                     <Screen styleName="paper">
 
-                        <Button styleName="dark border full-width" onPress={() => this.props.navigation.navigate('Details')}>
+                        <Button styleName="secondary border" onPress={() => this.props.navigation.navigate('Details')}>
                             <Icon name="my-location" />
                             <Text>View 3D</Text>
                         </Button>

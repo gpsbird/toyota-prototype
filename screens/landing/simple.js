@@ -5,6 +5,7 @@ import {
     ListView,
     Tile,
     Title,
+    Overlay,
     Subtitle,
     TouchableOpacity,
     Screen,
@@ -45,7 +46,9 @@ export default class Simple extends Component {
                     source={{ uri: vehicle.image.url }}
                 >
                     <Tile>
+
                         <Title styleName="md-gutter-bottom">{vehicle.name}</Title>
+
                     </Tile>
                 </ImageBackground>
                 <Divider styleName="line" />

@@ -10,6 +10,9 @@ import Introduction from './landing/introduction';
 import Home from './home/home';
 import News from './news/news';
 import Book from './book/book';
+import Login from './login/login';
+import Signup from './register/register';
+import Photos from './photos/photos';
 import Car from './car/car';
 import DrawerContent from './sidebar';
 import {
@@ -57,7 +60,9 @@ const Menu = createStackNavigator({
   Details: { screen: Car },
   News: { screen: News },
   Book: { screen: Book },
-
+  Login: { screen: Login },
+  Signup: { screen: Signup },
+  Photos: { screen: Photos }
 }, {
     gesturesEnabled: false,
     navigationOptions: ({ navigation }) => ({
