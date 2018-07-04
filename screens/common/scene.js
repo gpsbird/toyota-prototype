@@ -2,9 +2,9 @@ import React from 'react';
 import THREE from "../../three";
 import Touches from '../utils/Touches';
 import { ThreeView } from './index';
-import { View } from 'react-native';
-import Files from '../../Files';
-import { car, mercedez, mercedez_mtl, merc } from '@assets/images';
+//import { View } from 'react-native';
+//import Files from '../../Files';
+import { car, bottle_mtl, bottle_obj, bottle_jpg } from '@assets/images';
 import _ from 'lodash';
 
 
@@ -208,26 +208,51 @@ class Scene extends React.Component {
         });
     }
 
+    loadTexture = () => {
+        this.texture = null;
+        return new Promise((resolve, reject) => {
+            let loader = new THREE.TextureLoader();
+            loader.load(bottle_jpg, (texture) => { resolve(texture); this.texture = texture; }, undefined, (xhr) => reject(xhr));
+        });
+    }
+
     objModel = () => {
 
-        let materials = this.loadMaterial(mercedez_mtl);
-        //let object = this.loadObject(mercedez);
+        this.loadTexture();
 
-        materials.then(resp => {
-            resp.preload();
+        let materials = this.loadMaterial(bottle_mtl);
+
+        materials.then(response => {
+
+            response.preload();
+
             let loader = new THREE.OBJLoader(this.manager);
-            loader.setMaterials(resp);
-            this.loadObject(loader, mercedez).then(mesh => {
-                this.scene.add(mesh);
-                //this.props.status(this.scene.toJSON().materials);
+            loader.setMaterials(response);
+            this.loadObject(loader, bottle_obj).then(mesh => {
+
+                mesh.traverse(child => {
+
+                    if (child instanceof THREE.Mesh) {
+                        child.material.map = this.texture;
+                    }
+
+                });
+
+                //mesh.position.set(0, 0, 0);
+
+                mesh.scale.set(6, 6, 6);
+                //mesh.geometry.center();
+                let box = new THREE.Box3().setFromObject(mesh);
+                box.center(mesh.position); // this re-sets the mesh position
+                mesh.position.multiplyScalar(- 1);
+                //this.scene.add(mesh);
+                let pivot = new THREE.Group();
+                this.scene.add(pivot);
+                pivot.add(mesh);
+
             }).catch(reason => this.props.reportError(reason));
         }).catch(reason => this.props.reportError(reason));
 
-        /*Promise.all([object, materials]).then((responses) => {
-            responses[1].preload();
-            responses[0].setMaterials(responses[1]);
-            this.scene.add(responses[0]);
-        });*/
     }
 
     jsonModel = () => {

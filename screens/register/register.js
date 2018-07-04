@@ -4,27 +4,23 @@ import { StyleSheet } from 'react-native';
 import {
     ScrollView,
     Icon,
-    Row,
+    View,
     Subtitle,
     Overlay,
     Text,
     Title,
-    View,
     Button,
     ImageBackground,
-    Divider,
-    Card,
-    ListView,
-    Caption,
-    TouchableOpacity,
     Tile,
     Image,
     Screen,
-    GridView,
-    TextInput,
-    GridRow
+
 } from '@shoutem/ui';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
+import { addUser } from './actions';
+import Form from "./form";
 
 const styles = StyleSheet.create({
     container: {
@@ -37,7 +33,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default class Signup extends Component {
+class Signup extends Component {
 
     static navigationOptions = ({ navigation }) => ({
         headerLeft: <Button onPress={() => navigation.dispatch(DrawerActions.openDrawer())} ><Icon name="sidebar" /></Button>,
@@ -45,9 +41,12 @@ export default class Signup extends Component {
 
     render() {
 
+        let { addUser, error } = this.props;
+        let errors = error.toJS();
+
         return (
             <Screen style={styles.container} styleName="paper">
-                <ScrollView>
+                <ScrollView keyboardShouldPersistTaps={'handled'}>
 
                     <ImageBackground
                         styleName="large-banner hero"
@@ -61,39 +60,25 @@ export default class Signup extends Component {
                         </Tile>
                     </ImageBackground>
 
-                    <View styleName="vertical">
-                        <TextInput placeholder={'Full name'} />
-                    </View>
+                    {(Object.keys(errors).length > 0) ? <View styleName="vertical"><Text>{error.message}</Text></View> : null}
 
-                    <View styleName="vertical">
-                        <TextInput placeholder={'Username'} />
-                    </View>
+                    <Form onSubmit={addUser} />
 
-                    <View styleName="vertical">
-                        <TextInput placeholder={'Phone'} />
-                    </View>
-
-                    <View styleName="vertical">
-                        <TextInput placeholder={'Email'} />
-                    </View>
-
-                    <View styleName="vertical">
-                        <TextInput secureTextEntry placeholder={'Password'} />
-                    </View>
-
-                    <View styleName="horizontal">
-
-                        <Button styleName="confirmation secondary">
-                            <Icon name="add-friend" />
-                            <Text>Register</Text>
-                        </Button>
-
-                    </View>
                 </ScrollView>
             </Screen>
         );
     }
 
+}
 
+const mapStateToProps = (state) => {
+    return {
+        error: state.users.get('error')
+    }
+}
 
-}//
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ addUser }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)

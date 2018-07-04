@@ -23,7 +23,7 @@ export default class Vehicle extends Component {
 
     static navigationOptions = ({ navigation }) => ({
 
-        headerLeft: <Button onPress={() => { const vehicle = navigation.getParam('vehicle', {}); console.log(vehicle); navigation.goBack(); }} ><Icon name="back" /></Button>,
+        headerLeft: <Button onPress={() => { const vehicle = navigation.getParam('vehicle', {}); /*console.log(vehicle);*/ navigation.goBack(); }} ><Icon name="back" /></Button>,
     });
 
     state = {

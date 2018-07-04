@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text } from 'react-native';
 import Root from './screens/root';
-import Orientation from 'react-native-orientation';
+//import Orientation from 'react-native-orientation';
 import SplashScreen from 'react-native-smart-splash-screen'
+import { Provider } from 'react-redux';
+import store from './store'
+
+// symbol polyfills
+global.Symbol = require('core-js/es6/symbol');
+require('core-js/fn/symbol/iterator');
+
+// collection fn polyfills
+require('core-js/fn/map');
+require('core-js/fn/set');
+require('core-js/fn/array/find');
 
 export default class toyota extends Component {
 
@@ -25,7 +36,7 @@ export default class toyota extends Component {
 
         console.disableYellowBox = true;
 
-        return <Root />
+        return <Provider store={store}><Root /></Provider>
     }
 
 
